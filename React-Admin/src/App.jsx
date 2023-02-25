@@ -5,6 +5,10 @@ import Topbar from './scenes/global/Topbar'
 import {Routes, Route} from "react-router-dom"
 import Dashboard from './scenes/dashboard/index'
 import Sidebar from './scenes/global/Sidebar'
+import Team from './scenes/team'
+import Scholarships from './scenes/Scholarships'
+import Login from './components/Login'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -13,13 +17,14 @@ function App() {
     <ThemeProvider theme={theme}>
     <CssBaseline/>
     <div className="app">
-      <Sidebar/>
+      {window.location.pathname  != '/login' ? <Sidebar/> :undefined}
       <main className='content' >
-        <Topbar/>
+        {window.location.pathname != '/login' ? <Topbar/>:undefined}
         <Routes>
-          <Route path="/" element={<Dashboard/>} />
-          {/* <Route path="/team" element={<Team/>} /> */}
-          {/* <Route path="/contacts" element={<Contacts/>} /> */}
+          <Route exact path='/login' element={<Login/>}/>
+          <Route exact path="/" element={<Dashboard/>} />
+          <Route exact path="/users" element={<Team/>} />
+          <Route exact path="/scholarships" element={<Scholarships/>} />
           {/* <Route path="/invoices" element={<Invoices/>} /> */}
           {/* <Route path="/form" element={<Form/>} /> */}
           {/* <Route path="/bar" element={<Bar/>} /> */}
@@ -33,6 +38,7 @@ function App() {
     </div>
     </ThemeProvider>
   </ColorModeContext.Provider>
+    
   )
 }
 
