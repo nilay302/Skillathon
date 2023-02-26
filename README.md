@@ -1,1 +1,1 @@
-# Skillathon
+# Skillathon 1.0
