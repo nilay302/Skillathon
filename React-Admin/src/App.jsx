@@ -9,6 +9,7 @@ import Team from './scenes/team'
 import Scholarships from './scenes/Scholarships'
 import Login from './components/Login'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Mentors from './scenes/Mentors'
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/" element={<Dashboard/>} />
           <Route exact path="/users" element={<Team/>} />
           <Route exact path="/scholarships" element={<Scholarships/>} />
-          {/* <Route path="/invoices" element={<Invoices/>} /> */}
+          <Route path="/mentors" element={<Mentors/>} />
           {/* <Route path="/form" element={<Form/>} /> */}
           {/* <Route path="/bar" element={<Bar/>} /> */}
           {/* <Route path="/pie" element={<Pie/>} /> */}

@@ -1,62 +1,49 @@
-import { Box } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import Header from "../../components/Header";
-import { useTheme } from "@mui/material";
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import Header from "../../components/Header";
 
-
-const Scholarships = () => {
+const Mentors = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const columns = [
-    { field: "_id", headerName: "ID", flex: 1 },
+    { field: "_id", headerName: "ID",flex: 1},
     {
       field: "name",
-      headerName: "Scholarship Name",
+      headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "amount",
-      headerName: "Amount",
-      type: "number",
+      field: "expertise",
+      headerName: "Expertise",
       flex: 1,
-      headerAlign: "left",
-      align: "left",
     },
     {
-        field: "applied_users",
-        headerName: "Applied Users",
-        type: "number",
-        flex: 1,
-        headerAlign: "left",
-        align: "left",
-      },
-      {
-        field: "accepted_users",
-        headerName: "Accepted Users",
-        type: "number",
-        flex: 1,
-        headerAlign: "left",
-        align: "left",
-      },
-      {
-        field: "rejected_users",
-        headerName: "Rejected Users",
-        type: "number",
-        flex: 1,
-        headerAlign: "left",
-        align: "left",
-      },
-   
-  ];
+      field: "rating",
+      headerName: "Rating",
+      type: "number",
+      flex: 1,
 
+      // headerAlign: "left",
+      // align: "left",
+    },
+    {
+      field: "noOfMeetings",
+      headerName: "Meetings",
+      type: "number",
+      flex: 1,
+
+      // headerAlign: "left",
+      // align: "left",
+    },
+    
+  ];
   const [rowData, getRowData] = useState([]);
   useEffect(() => {
-    const URL = `https://bap-production.up.railway.app/admin/scholarships`;
+    const URL = `https://bap-production.up.railway.app/admin/mentors`;
     axios
       .get(URL, 
         {
@@ -83,13 +70,9 @@ const Scholarships = () => {
       });
   }, []);
 
-
   return (
     <Box m="20px">
-      <Header
-        title="SCHOLARSHIPS"
-        subtitle="List of all Scholarships available"
-      />
+      <Header title="Mentors" subtitle="List of all Mentors on Portal" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -122,15 +105,15 @@ const Scholarships = () => {
           },
         }}
       >
-        <DataGrid
-          rows={rowData}
-          columns={columns}
-          components={{ Toolbar: GridToolbar }}
-          getRowId={(row) => row._id}
-        />
+        <DataGrid checkboxSelection 
+          rows={rowData} 
+         columns={columns} 
+         getRowId={(row) => row._id}
+         components={{ Toolbar: GridToolbar }}
+         />
       </Box>
     </Box>
   );
 };
 
-export default Scholarships;
+export default Mentors;
