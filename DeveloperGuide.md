@@ -3,6 +3,9 @@
 1) Clone this Repository
 2) Open the Skillathon Folder in Android-Application directory from Android Studio
 
+User can download the apk-file from release folder in app directory
+
+
 **Admin Portal :**
 Steps :
 1) Clone the GitHub Repo containing the source code
