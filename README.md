@@ -1,5 +1,4 @@
 # Skillathon 1.0
-# **Gurukul**
 
 **Project Description**:</br>
  It is the BAP Application where student can search for the available scholarships and connect with the mentors
