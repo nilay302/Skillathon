@@ -1,4 +1,4 @@
-*USER GUIDE : *
+*USER GUIDE :*
 
 1) User creates his account from the Sign Up Page
 2) After verifying his email address, he can log into his account
